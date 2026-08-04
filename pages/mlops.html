@@ -27,12 +27,22 @@
         .project-body p { color: #bbb; font-size: 13.5px; margin: 0 0 12px; }
         .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
         .tag { padding: 3px 10px; border-radius: 20px; font-size: 11.5px; background: #1e1e3a; border: 1px solid #3a3a5a; color: #aac; }
-        .refs { display: flex; flex-wrap: wrap; gap: 7px; }
-        .badge { padding: 3px 10px; border-radius: 20px; font-size: 11.5px; text-decoration: none; transition: background 0.2s, color 0.2s; white-space: nowrap; }
-        .badge-gh  { background: #1a1a2a; color: #9d9dd9; border: 1px solid #3a3a5a; }
-        .badge-gh:hover  { background: #2a2a4a; color: #fff; }
-        .badge-nb  { background: #1a2a3a; color: #7ab8d9; border: 1px solid #2a4a5a; }
-        .badge-nb:hover  { background: #1e3550; color: #fff; }
+        /* Project Images */
+        .project-image-wrapper { margin: 0 0 24px 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #fff; padding: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.3); }
+        .project-image { width: 100%; height: auto; display: block; border-radius: 8px; transition: transform 0.5s ease; }
+        .project-card:hover .project-image { transform: scale(1.02); }
+
+        /* Repositories - Modern Cards */
+        .repo-list { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; flex-grow: 1;}
+        .repo-item { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; transition: all 0.3s ease; position: relative; overflow: hidden; display: block; text-decoration: none; }
+        .repo-item:hover { background: rgba(220,20,60,0.08); border-color: rgba(220,20,60,0.4); transform: translateX(6px); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .repo-item::after { content: '\f105'; font-family: 'Font Awesome 5 Free'; font-weight: 900; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.1); transition: color 0.3s, transform 0.3s; font-size: 18px; }
+        .repo-item:hover::after { color: #ff4d4d; transform: translate(4px, -50%); }
+        .repo-title-wrapper { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+        .repo-title { color: #fff; font-weight: 600; font-size: 15px; }
+        .repo-title-wrapper i { color: #888; transition: color 0.3s; font-size: 16px;}
+        .repo-item:hover .repo-title-wrapper i { color: #ff4d4d; }
+        .repo-desc { color: #8a8aab; font-size: 13px; margin: 0; line-height: 1.5; padding-right: 24px;}
     </style>
 </head>
 <body>
@@ -56,6 +66,9 @@
                     <div class="project-title">House Price Prediction — End-to-End ML Pipeline</div>
                 </div>
                 <div class="project-body">
+                    <div class="project-image-wrapper">
+                        <img src="../images/projects/mlops_house_price.jpg" alt="MLOps House Price Prediction Pipeline" class="project-image">
+                    </div>
                     <p>A complete supervised learning pipeline for predicting residential property prices. Covers data ingestion and cleaning, exploratory data analysis, feature engineering (encoding, scaling, outlier handling), training and comparing multiple regression models (Linear, Ridge, Lasso, Random Forest, XGBoost), hyperparameter tuning with cross-validation, and evaluation using RMSE and R². Structured as a reproducible, modular codebase following MLOps best practices.</p>
                     <div class="tag-list">
                         <span class="tag">Python</span>
@@ -67,8 +80,11 @@
                         <span class="tag">Regression</span>
                         <span class="tag">Hyperparameter Tuning</span>
                     </div>
-                    <div class="refs">
-                        <a class="badge badge-gh" href="https://github.com/shambhubhandari/Houseprice_prediction" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <div class="repo-list">
+                        <a href="https://github.com/shambhubhandari/Houseprice_prediction" target="_blank" class="repo-item">
+                            <div class="repo-title-wrapper"><i class="fab fa-github"></i> <span class="repo-title">Houseprice_prediction</span></div>
+                            <p class="repo-desc">End-to-end ML pipeline for residential property price prediction.</p>
+                        </a>
                     </div>
                 </div>
             </div>
