@@ -6,6 +6,7 @@
     <title>Research Projects | Shambhu Bhandari Sharma</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body { background: #111; color: #fff; line-height: 1.7; font-family: 'Poppins', sans-serif; }
@@ -18,26 +19,152 @@
         .post-header h1 { font-family: 'Ubuntu', sans-serif; font-size: 36px; text-align: center; color: #fff; margin: 0; }
         .post-header p { text-align: center; color: #aaa; margin: 10px 0 0; font-size: 14px; }
 
+        /* Dynamic Background Glow */
+        body { position: relative; }
+        .bg-glow { position: fixed; top: 10%; left: 0%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(220,20,60,0.12) 0%, transparent 60%); filter: blur(60px); z-index: -1; animation: float 12s infinite alternate ease-in-out; pointer-events: none;}
+        .bg-glow-2 { position: fixed; bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(122,184,217,0.08) 0%, transparent 60%); filter: blur(80px); z-index: -1; animation: float2 15s infinite alternate ease-in-out; pointer-events: none;}
+        
+        @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(50px, 50px) scale(1.1); } }
+        @keyframes float2 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-50px, -30px) scale(0.9); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
         /* Project cards */
-        .projects-list { margin: 0 20px; display: flex; flex-direction: column; gap: 28px; }
-        .project-card { background: #16162a; border: 1px solid #2a2a3d; border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
-        .project-card:hover { border-color: crimson; }
-        .project-header { padding: 16px 20px 12px; border-bottom: 1px solid #2a2a3d; display: flex; align-items: flex-start; gap: 14px; }
-        .project-num { font-size: 22px; font-weight: 700; color: crimson; font-family: 'Ubuntu', sans-serif; flex-shrink: 0; line-height: 1.3; }
-        .project-title { font-family: 'Ubuntu', sans-serif; font-size: 16px; font-weight: 600; color: #fff; }
-        .project-body { padding: 16px 20px; }
-        .project-body p { color: #bbb; font-size: 13.5px; margin: 0 0 12px; }
-        .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
-        .tag { padding: 3px 10px; border-radius: 20px; font-size: 11.5px; background: #1e1e3a; border: 1px solid #3a3a5a; color: #aac; }
-        .refs { display: flex; flex-wrap: wrap; gap: 7px; }
-        .badge { padding: 3px 10px; border-radius: 20px; font-size: 11.5px; text-decoration: none; transition: background 0.2s, color 0.2s; white-space: nowrap; }
-        .badge-ref { background: #1a1a3a; color: #9a9add; border: 1px solid #3a3a5a; }
-        .badge-ref:hover { background: #2a2a5a; color: #fff; }
-        .badge-nb  { background: #1a2a3a; color: #7ab8d9; border: 1px solid #2a4a5a; }
-        .badge-nb:hover  { background: #1e3550; color: #fff; }
+        .projects-list { margin: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 36px; perspective: 1000px; }
+        
+        .project-card { 
+            background: rgba(22, 22, 42, 0.6); 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.08); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            position: relative; 
+            display: flex; 
+            flex-direction: column;
+            animation: slideUp 0.7s ease-out backwards;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .project-card:hover { 
+            transform: translateY(-10px); 
+            border-color: rgba(220, 20, 60, 0.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 20px rgba(220, 20, 60, 0.2);
+        }
+
+        .project-card::before { 
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; 
+            background: linear-gradient(90deg, #ff4d4d, crimson, #8b0000, crimson, #ff4d4d); 
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+            opacity: 0.8;
+            z-index: 2;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+        
+        /* Header */
+        .project-header { padding: 28px 32px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 20px; background: linear-gradient(180deg, rgba(220,20,60,0.08) 0%, transparent 100%); position: relative;}
+        
+        .project-icon-box { 
+            width: 54px; height: 54px; border-radius: 14px; 
+            background: linear-gradient(135deg, rgba(220,20,60,0.2), rgba(220,20,60,0.05)); 
+            border: 1px solid rgba(220,20,60,0.3);
+            display: flex; align-items: center; justify-content: center; 
+            color: #ff4d4d; font-size: 26px; flex-shrink: 0;
+            box-shadow: inset 0 0 15px rgba(220,20,60,0.1), 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+        }
+        .project-card:hover .project-icon-box {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: inset 0 0 20px rgba(220,20,60,0.3), 0 10px 20px rgba(220,20,60,0.2);
+            color: #fff;
+        }
+        
+        .project-title { font-family: 'Ubuntu', sans-serif; font-size: 21px; font-weight: 700; color: #fff; line-height: 1.35; margin-top: 2px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);}
+        
+        .project-body { padding: 32px; flex-grow: 1; display: flex; flex-direction: column;}
+        .project-body p { color: #b8b8d0; font-size: 14.5px; margin: 0 0 28px; line-height: 1.75; font-weight: 400;}
+        
+        /* Tech Stack */
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; align-items: center; }
+        .tech-stack i { font-size: 26px; transition: transform 0.3s; cursor: pointer; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); }
+        .tech-stack i:hover { transform: translateY(-5px) scale(1.15); filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6)); }
+        .tech-text { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: #fff; font-weight: 600; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: background 0.3s, border-color 0.3s;}
+        .project-card:hover .tech-text { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+        
+        /* Project Images */
+        .project-image-wrapper {
+            margin: 0 0 24px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #fff;
+            padding: 4px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .project-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.02);
+        }
+
+        /* Repositories - Modern Cards */
+        .repo-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; flex-grow: 1;}
+        .repo-item { 
+            background: rgba(0,0,0,0.35); 
+            border: 1px solid rgba(255,255,255,0.06); 
+            border-radius: 12px; 
+            padding: 16px 20px; 
+            transition: all 0.3s ease; 
+            position: relative;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+        }
+        .repo-item:hover { 
+            background: rgba(220,20,60,0.08); 
+            border-color: rgba(220,20,60,0.4); 
+            transform: translateX(6px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .repo-item::after {
+            content: '\f105'; /* FontAwesome angle-right */
+            font-family: 'Font Awesome 5 Free'; font-weight: 900;
+            position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+            color: rgba(255,255,255,0.1); transition: color 0.3s, transform 0.3s;
+            font-size: 18px;
+        }
+        .repo-item:hover::after { color: #ff4d4d; transform: translate(4px, -50%); }
+        
+        .repo-title-wrapper { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+        .repo-title { color: #fff; font-weight: 600; font-size: 15px; }
+        .repo-title-wrapper i { color: #888; transition: color 0.3s; font-size: 16px;}
+        .repo-item:hover .repo-title-wrapper i { color: #ff4d4d; }
+        .repo-desc { color: #8a8aab; font-size: 13px; margin: 0; line-height: 1.5; padding-right: 24px;}
+        
+        /* Related Publications */
+        .related-pubs-title { font-size: 12px; color: #ffffff; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+        .pub-list { display: flex; flex-direction: column; gap: 8px; }
+        .pub-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px 14px; text-decoration: none; transition: all 0.2s; display: flex; align-items: flex-start; gap: 10px;}
+        .pub-item:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); transform: translateY(-2px);}
+        .pub-num { font-weight: 700; color: crimson; font-size: 13px; margin-top: 1px; min-width: 14px;}
+        .pub-title { font-weight: 500; color: #ccc; font-size: 13px; line-height: 1.4;}
+        .pub-item:hover .pub-title { color: #fff; } 
     </style>
 </head>
-<body>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
     <div class="header">
         <div class="logo"><a href="index.html">Portfo<span>lio.</span></a></div>
         <a href="index.html"><i class="fas fa-home"></i> Back to Home</a>
@@ -54,23 +181,40 @@
             <!-- PROJECT 1 -->
             <div class="project-card">
                 <div class="project-header">
-                    <div class="project-num">01</div>
+                    <div class="project-icon-box"><i class="fas fa-atom"></i></div>
                     <div class="project-title">Ab-initio Phase Diagram of Binary Alloys at High Pressure</div>
                 </div>
                 <div class="project-body">
-                    <p>Melting curve calculations up to extreme pressures are essential for predicting materials that sustain nuclear fusion reactors, aerospace, and military applications, and for understanding planetary core structure. We introduce controlled impurities at varying concentrations into pristine metals to predict stable alloys and study their structural, electronic, magnetic, and thermo-mechanical properties under high pressure using DFT and molecular dynamics. Electronic structure and statistical mechanics techniques, together with <strong style="color:#ddd">Machine Learning</strong>, are used to predict accurate phase diagrams and compare results with bulk metals.</p>
-                    <div class="tag-list">
-                        <span class="tag">DFT</span>
-                        <span class="tag">Molecular Dynamics</span>
-                        <span class="tag">Phase Diagram</span>
-                        <span class="tag">High Pressure</span>
-                        <span class="tag">Binary Alloys</span>
-                        <span class="tag">Machine Learning</span>
+                    <div class="project-image-wrapper">
+                        <img src="../images/projects/phase_diagram_art.jpg" alt="Ab-initio Phase Diagram of Binary Alloys" class="project-image">
                     </div>
-                    <div class="refs">
-                        <a class="badge badge-ref" href="https://www.homepages.ucl.ac.uk/~ucfbdxa/pubblicazioni/prb2002_2.pdf" target="_blank">📄 Ref: Alfè PRB 2002</a>
-                        <a class="badge badge-ref" href="https://www.sciencedirect.com/science/article/pii/S0927025622001628" target="_blank">📄 Ref: Comp. Mat. Sci.</a>
-                        <a class="badge badge-nb" href="https://colab.research.google.com/drive/1Gm1zMgY0YSLAodpHUrIDEfU8fRP4uoPu#scrollTo=UfaSei1J8FJt" target="_blank">📓 Notebook</a>
+                    <p>Melting curve calculations up to extreme pressures are essential for predicting materials that sustain nuclear fusion reactors, aerospace, and military applications. We introduce controlled impurities to pristine metals to predict stable alloys and study their structural, electronic, and thermo-mechanical properties using DFT and AIMD.</p>
+                    
+                    <div class="tech-stack">
+                        <i class="devicon-python-plain colored" title="Python"></i>
+                        <i class="devicon-tensorflow-original colored" title="TensorFlow"></i>
+                        <span class="tech-text">VASP</span>
+                        <span class="tech-text">LAMMPS</span>
+                        <span class="tech-text">Phase Diagrams</span>
+                    </div>
+
+                    <div class="repo-list">
+                        <a href="https://github.com/shambhubhandari/PCFC-Automation" target="_blank" class="repo-item">
+                            <div class="repo-title-wrapper"><i class="fab fa-github"></i> <span class="repo-title">PCFC-Automation</span></div>
+                            <p class="repo-desc">Automates melting points & phase equilibria via TI and MD.</p>
+                        </a>
+                    </div>
+
+                    <div class="related-pubs-title">Related Published Articles</div>
+                    <div class="pub-list">
+                        <a href="https://pubs.aip.org/aip/jcp/article/162/18/184502/3346477" target="_blank" class="pub-item">
+                            <span class="pub-num">1.</span>
+                            <span class="pub-title">Ab initio melting curve of elements (JCP Article)</span>
+                        </a>
+                        <a href="https://arxiv.org/pdf/2608.02225" target="_blank" class="pub-item">
+                            <span class="pub-num">2.</span>
+                            <span class="pub-title">Phase diagram and melting under extreme conditions (arXiv Preprint)</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -78,21 +222,36 @@
             <!-- PROJECT 2 -->
             <div class="project-card">
                 <div class="project-header">
-                    <div class="project-num">02</div>
-                    <div class="project-title">Premelting Effects in Mechanical Properties of Materials</div>
+                    <div class="project-icon-box" style="color: #00bcd4; background: linear-gradient(135deg, rgba(0,188,212,0.2), rgba(0,188,212,0.05)); border-color: rgba(0,188,212,0.3); box-shadow: inset 0 0 15px rgba(0,188,212,0.1), 0 8px 16px rgba(0,0,0,0.2);"><i class="fas fa-project-diagram"></i></div>
+                    <div class="project-title">Hybrid Graph Neural Networks &amp; Data Leakage in Materials Informatics</div>
                 </div>
                 <div class="project-body">
-                    <p>As temperatures approach the melting point, elastic tensors exhibit a strong temperature dependence — a phenomenon known as premelting softening. We investigate how impurities affect this behaviour and compute thermo-mechanical properties using ab-initio molecular dynamics. The melting behaviour of materials is significantly altered by inclusion of foreign atoms, with implications for high-temperature structural materials.</p>
-                    <div class="tag-list">
-                        <span class="tag">AIMD</span>
-                        <span class="tag">Elastic Tensors</span>
-                        <span class="tag">Premelting</span>
-                        <span class="tag">Impurity Effects</span>
-                        <span class="tag">Thermo-mechanics</span>
+                    <div class="project-image-wrapper">
+                        <img src="../images/projects/gnn_leakage_styled.jpg" alt="Data Leakage Analysis for Hybrid GNN" class="project-image">
                     </div>
-                    <div class="refs">
-                        <a class="badge badge-ref" href="https://www.science.org/doi/10.1126/science.1243651" target="_blank">📄 Ref: Science</a>
-                        <a class="badge badge-ref" href="https://www.homepages.ucl.ac.uk/~ucfbdxa/pubblicazioni/jcp2002_2.pdf" target="_blank">📄 Ref: Alfè JCP 2002</a>
+                    <p>An independent reproduction and audit of a recent hybrid graph-neural-network (CGCNN, MEGNet, SchNet) framework for band-gap prediction. We revealed that the originally reported high accuracies were artificially inflated due to severe train-test contamination and target-derived feature leakage. Controlled ablations isolate the genuine lift of GNNs over tabular baselines, correcting the literature record.</p>
+                    
+                    <div class="tech-stack">
+                        <i class="devicon-python-plain colored" title="Python"></i>
+                        <i class="devicon-pytorch-original colored" title="PyTorch"></i>
+                        <span class="tech-text">Graph Neural Networks</span>
+                        <span class="tech-text">Data Audit / Leakage</span>
+                        <span class="tech-text">Band Gap</span>
+                    </div>
+
+                    <div class="repo-list">
+                        <a href="https://github.com/shambhubhandari/Hybrid-GNN" target="_blank" class="repo-item">
+                            <div class="repo-title-wrapper"><i class="fab fa-github"></i> <span class="repo-title">Hybrid-GNN</span></div>
+                            <p class="repo-desc">Data leakage analysis and predictive pipeline audit for J. Chem. Inf. Model. 2026.</p>
+                        </a>
+                    </div>
+
+                    <div class="related-pubs-title">Related Published Articles</div>
+                    <div class="pub-list">
+                        <a href="#" target="_blank" class="pub-item">
+                            <span class="pub-num">1.</span>
+                            <span class="pub-title">View Manuscript</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -100,23 +259,43 @@
             <!-- PROJECT 3 -->
             <div class="project-card">
                 <div class="project-header">
-                    <div class="project-num">03</div>
-                    <div class="project-title">Low-dimensional (0D · 1D · 2D) Material Properties</div>
+                    <div class="project-icon-box" style="color: #ff9800; background: linear-gradient(135deg, rgba(255,152,0,0.2), rgba(255,152,0,0.05)); border-color: rgba(255,152,0,0.3); box-shadow: inset 0 0 15px rgba(255,152,0,0.1), 0 8px 16px rgba(0,0,0,0.2);"><i class="fas fa-search"></i></div>
+                    <div class="project-title">High-throughput Discovery &amp; Properties Prediction</div>
                 </div>
                 <div class="project-body">
-                    <p>We predict and characterise novel low-dimensional materials using DFT combined with non-equilibrium Green's function (NEGF) methods and ab-initio MD. Focus areas include quantum transport, nanomechanics, optoelectronics, and magnetism under varied conditions of doping, strain, electric field, and chemical passivation.</p>
-                    <div class="tag-list">
-                        <span class="tag">DFT + NEGF</span>
-                        <span class="tag">Quantum Transport</span>
-                        <span class="tag">2D Materials</span>
-                        <span class="tag">Nanomechanics</span>
-                        <span class="tag">Optoelectronics</span>
-                        <span class="tag">Magnetism</span>
-                        <span class="tag">Structural Prediction</span>
-                        <span class="tag">AIMD</span>
+                    <div class="project-image-wrapper">
+                        <img src="../images/projects/high_throughput_styled.jpg" alt="High-throughput materials screening grid" class="project-image">
                     </div>
-                    <div class="refs">
-                        <a class="badge badge-ref" href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2F37AF55111B302FC4F03D9CE0E81A34/9781139164313pre_pi-iv_CBO.pdf/frontmatter.pdf" target="_blank">📄 Ref: Cambridge Text</a>
+                    <p>Accelerating materials discovery by combining high-throughput computations with machine learning and uncertainty sampling. This framework was successfully deployed to discover and predict the properties of novel 2D materials, including penta-SiCN and penta-PBN, and to uncover rare auxetic behaviours such as a negative Poisson's ratio.</p>
+                    
+                    <div class="tech-stack">
+                        <i class="devicon-python-plain colored" title="Python"></i>
+                        <span class="tech-text">High-Throughput</span>
+                        <span class="tech-text">penta-SiCN &amp; PBN</span>
+                        <span class="tech-text">Auxetic Properties</span>
+                    </div>
+
+                    <div class="repo-list">
+                        <a href="https://github.com/shambhubhandari/PDC" target="_blank" class="repo-item">
+                            <div class="repo-title-wrapper"><i class="fab fa-github"></i> <span class="repo-title">PDC</span></div>
+                            <p class="repo-desc">Phase diagram construction based on uncertainty sampling.</p>
+                        </a>
+                    </div>
+
+                    <div class="related-pubs-title">Related Published Articles</div>
+                    <div class="pub-list">
+                        <a href="https://pubs.acs.org/aaembp/article/4/5/2561/386085/Penta-SiCN-A-Highly-Auxetic-Monolayer" target="_blank" class="pub-item">
+                            <span class="pub-num">1.</span>
+                            <span class="pub-title">Penta-SiCN: A Highly Auxetic Monolayer</span>
+                        </a>
+                        <a href="https://pubs.acs.org/acsodf/article/7/41/36235/377873" target="_blank" class="pub-item">
+                            <span class="pub-num">2.</span>
+                            <span class="pub-title">Large Negative Poisson's Ratio and Anisotropic Mechanics in New Penta-PBN Monolayer</span>
+                        </a>
+                        <a href="https://www.mdpi.com/2079-4991/12/22/4068" target="_blank" class="pub-item">
+                            <span class="pub-num">3.</span>
+                            <span class="pub-title">First-Principles Prediction of New 2D p-SiPN: A Wide Bandgap Semiconductor</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -124,18 +303,119 @@
             <!-- PROJECT 4 -->
             <div class="project-card">
                 <div class="project-header">
-                    <div class="project-num">04</div>
+                    <div class="project-icon-box" style="color: #4caf50; background: linear-gradient(135deg, rgba(76,175,80,0.2), rgba(76,175,80,0.05)); border-color: rgba(76,175,80,0.3); box-shadow: inset 0 0 15px rgba(76,175,80,0.1), 0 8px 16px rgba(0,0,0,0.2);"><i class="fas fa-sun"></i></div>
+                    <div class="project-title">Photocatalysis for Energy Conversion</div>
+                </div>
+                <div class="project-body">
+                    <div class="project-image-wrapper">
+                        <img src="../images/projects/water_splitting_styled.jpg" alt="PdTe2 Water Splitting Band Alignment" class="project-image">
+                    </div>
+                    <p>Computational design of highly tunable 2D photocatalysts for clean energy applications. My foundational work investigated Cu-doped TiO₂ (112) surfaces for enhanced visible-light absorption, while my recent research demonstrates that strain-engineered pentagonal PdTe₂ (penta-PdTe₂) enables spontaneous, sustainable solar-driven water splitting.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-text">Photocatalysis</span>
+                        <span class="tech-text">Cu-doped TiO₂</span>
+                        <span class="tech-text">Water Splitting</span>
+                        <span class="tech-text">penta-PdTe₂</span>
+                    </div>
+
+                    <div class="repo-list">
+                    </div>
+
+                    <div class="related-pubs-title">Related Published Articles</div>
+                    <div class="pub-list">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0927025622006632" target="_blank" class="pub-item">
+                            <span class="pub-num">1.</span>
+                            <span class="pub-title">First-principles DFT study of Cu-doped TiO₂ (112) surface</span>
+                        </a>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0169433226016156" target="_blank" class="pub-item">
+                            <span class="pub-num">2.</span>
+                            <span class="pub-title">Pentagonal PdTe₂ Monolayer for Sustainable Solar-driven Hydrogen Production</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 5 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon-box" style="color: #4caf50; background: linear-gradient(135deg, rgba(76,175,80,0.2), rgba(76,175,80,0.05)); border-color: rgba(76,175,80,0.3); box-shadow: inset 0 0 15px rgba(76,175,80,0.1), 0 8px 16px rgba(0,0,0,0.2);"><i class="fas fa-layer-group"></i></div>
+                    <div class="project-title">Low-dimensional (0D · 1D · 2D) Material Properties</div>
+                </div>
+                <div class="project-body">
+                    <div class="project-image-wrapper">
+                        <img src="../images/projects/quantum_transport_gold.jpg" alt="Quantum Transport in Single-Layer Gold" class="project-image">
+                    </div>
+                    <p>We predict and characterise novel low-dimensional materials using DFT combined with non-equilibrium Green's function (NEGF) methods and ab-initio MD. Focus areas include quantum transport, nanomechanics, optoelectronics, and magnetism under varied conditions of doping, strain, and chemical passivation.</p>
+                    
+                    <div class="tech-stack">
+                        <i class="devicon-python-plain colored" title="Python"></i>
+                        <span class="tech-text">DFT + NEGF</span>
+                        <span class="tech-text">Quantum Transport</span>
+                        <span class="tech-text">2D Materials</span>
+                    </div>
+
+                    <div class="repo-list">
+                        <a href="https://github.com/shambhubhandari/Phonopy-scripts" target="_blank" class="repo-item">
+                            <div class="repo-title-wrapper"><i class="fab fa-github"></i> <span class="repo-title">Phonopy-scripts</span></div>
+                            <p class="repo-desc">Phonopy-VASP interface to compute phonon & thermodynamic properties.</p>
+                        </a>
+                        <a href="https://github.com/shambhubhandari/ts-tbt-sisl-tutorial" target="_blank" class="repo-item">
+                            <div class="repo-title-wrapper"><i class="fab fa-github"></i> <span class="repo-title">sisl-TBtrans Tutorials</span></div>
+                            <p class="repo-desc">Tutorials for the sisl-TBtrans-TranSiesta suite for quantum transport.</p>
+                        </a>
+                    </div>
+
+                    <div class="related-pubs-title">Related Published Articles</div>
+                    <div class="pub-list">
+                        <a href="https://www.cambridge.org/engage/chemrxiv/article-details/60e416f595d7ff3dffbd3fd9" target="_blank" class="pub-item">
+                            <span class="pub-num">1.</span>
+                            <span class="pub-title">Transport properties of one-dimensional monoatomic ultrathin gold nanowire: A DFT-NEGF approach</span>
+                        </a>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0169433222007978" target="_blank" class="pub-item">
+                            <span class="pub-num">2.</span>
+                            <span class="pub-title">Enhanced mechanical, electronic, magnetic and optical properties of 2D CrX₂</span>
+                        </a>
+                        <a href="https://link.springer.com/article/10.1140/epjb/s10051-021-00139-2" target="_blank" class="pub-item">
+                            <span class="pub-num">3.</span>
+                            <span class="pub-title">Structural, electronic, magnetic and mechanical properties of V-doped BN monolayer</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 6 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon-box" style="color: #9c27b0; background: linear-gradient(135deg, rgba(156,39,176,0.2), rgba(156,39,176,0.05)); border-color: rgba(156,39,176,0.3); box-shadow: inset 0 0 15px rgba(156,39,176,0.1), 0 8px 16px rgba(0,0,0,0.2);"><i class="fas fa-bolt"></i></div>
                     <div class="project-title">Novel Electrides — DFT &amp; AIMD Exploration</div>
                 </div>
                 <div class="project-body">
+                    <div class="project-image-wrapper">
+                        <img src="../images/projects/novel_electrides.jpg" alt="Trapped Electrons in Novel Electrides" class="project-image">
+                    </div>
                     <p>Electrides are ionic compounds where trapped electrons serve as anions. We use DFT and ab-initio MD to explore novel electrides from 0D to 3D dimensionality, studying their bulk and facet-dependent surface properties, doping effects, and slab/cleaving models to uncover functional behaviour.</p>
-                    <div class="tag-list">
-                        <span class="tag">Electrides</span>
-                        <span class="tag">DFT</span>
-                        <span class="tag">AIMD</span>
-                        <span class="tag">Surface Properties</span>
-                        <span class="tag">Slab Models</span>
-                        <span class="tag">Doping</span>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-text">Electrides</span>
+                        <span class="tech-text">DFT</span>
+                        <span class="tech-text">Surface Properties</span>
+                        <span class="tech-text">Slab Models</span>
+                    </div>
+
+                    <div class="repo-list">
+                        <a href="https://github.com/shambhubhandari/magnetism-prediction" target="_blank" class="repo-item">
+                            <div class="repo-title-wrapper"><i class="fab fa-github"></i> <span class="repo-title">magnetism-prediction</span></div>
+                            <p class="repo-desc">DFT-aided Machine Learning Search for Magnetism in Bimetallic Chalcogenides.</p>
+                        </a>
+                    </div>
+
+                    <div class="related-pubs-title">Related Published Articles</div>
+                    <div class="pub-list">
+                        <a href="https://pubs.rsc.org/mh/article-abstract/11/15/3613/855080" target="_blank" class="pub-item">
+                            <span class="pub-num">1.</span>
+                            <span class="pub-title">Signature of low-dimensional quasi-F centers in zirconium-rich electrides</span>
+                        </a>
                     </div>
                 </div>
             </div>
