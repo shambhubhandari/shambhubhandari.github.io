@@ -6,6 +6,7 @@
     <title>MLOps Projects | Shambhu Bhandari Sharma</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body { background: #111; color: #fff; line-height: 1.7; font-family: 'Poppins', sans-serif; }
@@ -17,35 +18,154 @@
         .post-header { padding: 40px; background: linear-gradient(135deg, #111, #1a1a2e); border-bottom: 3px solid crimson; margin: 0 -20px 40px; }
         .post-header h1 { font-family: 'Ubuntu', sans-serif; font-size: 36px; text-align: center; color: #fff; margin: 0; }
         .post-header p { text-align: center; color: #aaa; margin: 10px 0 0; font-size: 14px; }
-        .projects-list { margin: 0 20px; display: flex; flex-direction: column; gap: 28px; }
-        .project-card { background: #16162a; border: 1px solid #2a2a3d; border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
-        .project-card:hover { border-color: crimson; }
-        .project-header { padding: 16px 20px 12px; border-bottom: 1px solid #2a2a3d; display: flex; align-items: flex-start; gap: 14px; }
-        .project-num { font-size: 22px; font-weight: 700; color: crimson; font-family: 'Ubuntu', sans-serif; flex-shrink: 0; line-height: 1.3; }
-        .project-title { font-family: 'Ubuntu', sans-serif; font-size: 16px; font-weight: 600; color: #fff; }
-        .project-body { padding: 16px 20px; }
-        .project-body p { color: #bbb; font-size: 13.5px; margin: 0 0 12px; }
-        .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
-        .tag { padding: 3px 10px; border-radius: 20px; font-size: 11.5px; background: #1e1e3a; border: 1px solid #3a3a5a; color: #aac; }
+
+        /* Dynamic Background Glow */
+        body { position: relative; }
+        .bg-glow { position: fixed; top: 10%; left: 0%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(220,20,60,0.12) 0%, transparent 60%); filter: blur(60px); z-index: -1; animation: float 12s infinite alternate ease-in-out; pointer-events: none;}
+        .bg-glow-2 { position: fixed; bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(122,184,217,0.08) 0%, transparent 60%); filter: blur(80px); z-index: -1; animation: float2 15s infinite alternate ease-in-out; pointer-events: none;}
+        
+        @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(50px, 50px) scale(1.1); } }
+        @keyframes float2 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-50px, -30px) scale(0.9); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Project cards */
+        .projects-list { margin: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 36px; perspective: 1000px; }
+        
+        .project-card { 
+            background: rgba(22, 22, 42, 0.6); 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.08); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            position: relative; 
+            display: flex; 
+            flex-direction: column;
+            animation: slideUp 0.7s ease-out backwards;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .project-card:hover { 
+            transform: translateY(-10px); 
+            border-color: rgba(220, 20, 60, 0.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 20px rgba(220, 20, 60, 0.2);
+        }
+
+        .project-card::before { 
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; 
+            background: linear-gradient(90deg, #ff4d4d, crimson, #8b0000, crimson, #ff4d4d); 
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+            opacity: 0.8;
+            z-index: 2;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+        
+        /* Header */
+        .project-header { padding: 28px 32px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 20px; background: linear-gradient(180deg, rgba(220,20,60,0.08) 0%, transparent 100%); position: relative;}
+        
+        .project-icon-box { 
+            width: 54px; height: 54px; border-radius: 14px; 
+            background: linear-gradient(135deg, rgba(220,20,60,0.2), rgba(220,20,60,0.05)); 
+            border: 1px solid rgba(220,20,60,0.3);
+            display: flex; align-items: center; justify-content: center; 
+            color: #ff4d4d; font-size: 26px; flex-shrink: 0;
+            box-shadow: inset 0 0 15px rgba(220,20,60,0.1), 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+        }
+        .project-card:hover .project-icon-box {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: inset 0 0 20px rgba(220,20,60,0.3), 0 10px 20px rgba(220,20,60,0.2);
+            color: #fff;
+        }
+        
+        .project-title { font-family: 'Ubuntu', sans-serif; font-size: 21px; font-weight: 700; color: #fff; line-height: 1.35; margin-top: 2px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);}
+        
+        .project-body { padding: 32px; flex-grow: 1; display: flex; flex-direction: column;}
+        .project-body p { color: #b8b8d0; font-size: 14.5px; margin: 0 0 28px; line-height: 1.75; font-weight: 400;}
+        
+        /* Tech Stack */
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; align-items: center; }
+        .tech-stack i { font-size: 26px; transition: transform 0.3s; cursor: pointer; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); }
+        .tech-stack i:hover { transform: translateY(-5px) scale(1.15); filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6)); }
+        .tech-text { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: #fff; font-weight: 600; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: background 0.3s, border-color 0.3s;}
+        .project-card:hover .tech-text { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+        
         /* Project Images */
-        .project-image-wrapper { margin: 0 0 24px 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #fff; padding: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.3); }
-        .project-image { width: 100%; height: auto; display: block; border-radius: 8px; transition: transform 0.5s ease; }
-        .project-card:hover .project-image { transform: scale(1.02); }
+        .project-image-wrapper {
+            margin: 0 0 24px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #fff;
+            padding: 4px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .project-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.02);
+        }
 
         /* Repositories - Modern Cards */
-        .repo-list { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; flex-grow: 1;}
-        .repo-item { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; transition: all 0.3s ease; position: relative; overflow: hidden; display: block; text-decoration: none; }
-        .repo-item:hover { background: rgba(220,20,60,0.08); border-color: rgba(220,20,60,0.4); transform: translateX(6px); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .repo-item::after { content: '\f105'; font-family: 'Font Awesome 5 Free'; font-weight: 900; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.1); transition: color 0.3s, transform 0.3s; font-size: 18px; }
+        .repo-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; flex-grow: 1;}
+        .repo-item { 
+            background: rgba(0,0,0,0.35); 
+            border: 1px solid rgba(255,255,255,0.06); 
+            border-radius: 12px; 
+            padding: 16px 20px; 
+            transition: all 0.3s ease; 
+            position: relative;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+        }
+        .repo-item:hover { 
+            background: rgba(220,20,60,0.08); 
+            border-color: rgba(220,20,60,0.4); 
+            transform: translateX(6px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .repo-item::after {
+            content: '\f105'; /* FontAwesome angle-right */
+            font-family: 'Font Awesome 5 Free'; font-weight: 900;
+            position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+            color: rgba(255,255,255,0.1); transition: color 0.3s, transform 0.3s;
+            font-size: 18px;
+        }
         .repo-item:hover::after { color: #ff4d4d; transform: translate(4px, -50%); }
+        
         .repo-title-wrapper { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
         .repo-title { color: #fff; font-weight: 600; font-size: 15px; }
         .repo-title-wrapper i { color: #888; transition: color 0.3s; font-size: 16px;}
         .repo-item:hover .repo-title-wrapper i { color: #ff4d4d; }
         .repo-desc { color: #8a8aab; font-size: 13px; margin: 0; line-height: 1.5; padding-right: 24px;}
+        
+        /* Related Publications */
+        .related-pubs-title { font-size: 12px; color: #ffffff; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+        .pub-list { display: flex; flex-direction: column; gap: 8px; }
+        .pub-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px 14px; text-decoration: none; transition: all 0.2s; display: flex; align-items: flex-start; gap: 10px;}
+        .pub-item:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); transform: translateY(-2px);}
+        .pub-num { font-weight: 700; color: crimson; font-size: 13px; margin-top: 1px; min-width: 14px;}
+        .pub-title { font-weight: 500; color: #ccc; font-size: 13px; line-height: 1.4;}
+        .pub-item:hover .pub-title { color: #fff; } 
     </style>
 </head>
 <body>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
     <div class="header">
         <div class="logo"><a href="index.html">Portfo<span>lio.</span></a></div>
         <a href="index.html"><i class="fas fa-home"></i> Back to Home</a>
@@ -53,7 +173,7 @@
 
     <div class="content-container">
         <div class="post-header">
-            <h1>MLOps Projects</h1>
+            <h1>⚙️ MLOps Projects</h1>
             <p>End-to-end machine learning pipelines — from data ingestion to model deployment.</p>
         </div>
 
@@ -62,7 +182,7 @@
             <!-- PROJECT 1 -->
             <div class="project-card">
                 <div class="project-header">
-                    <div class="project-num">01</div>
+                    <div class="project-icon-box"><i class="fas fa-house-user"></i></div>
                     <div class="project-title">House Price Prediction — End-to-End ML Pipeline</div>
                 </div>
                 <div class="project-body">
@@ -70,16 +190,16 @@
                         <img src="../images/projects/mlops_house_price.jpg" alt="MLOps House Price Prediction Pipeline" class="project-image">
                     </div>
                     <p>A complete supervised learning pipeline for predicting residential property prices. Covers data ingestion and cleaning, exploratory data analysis, feature engineering (encoding, scaling, outlier handling), training and comparing multiple regression models (Linear, Ridge, Lasso, Random Forest, XGBoost), hyperparameter tuning with cross-validation, and evaluation using RMSE and R². Structured as a reproducible, modular codebase following MLOps best practices.</p>
-                    <div class="tag-list">
-                        <span class="tag">Python</span>
-                        <span class="tag">Scikit-learn</span>
-                        <span class="tag">XGBoost</span>
-                        <span class="tag">Pandas</span>
-                        <span class="tag">NumPy</span>
-                        <span class="tag">Feature Engineering</span>
-                        <span class="tag">Regression</span>
-                        <span class="tag">Hyperparameter Tuning</span>
+                    
+                    <div class="tech-stack">
+                        <i class="devicon-python-plain colored" title="Python"></i>
+                        <i class="devicon-pandas-plain colored" title="Pandas"></i>
+                        <i class="devicon-numpy-plain colored" title="NumPy"></i>
+                        <span class="tech-text">Scikit-learn</span>
+                        <span class="tech-text">XGBoost</span>
+                        <span class="tech-text">Regression</span>
                     </div>
+
                     <div class="repo-list">
                         <a href="https://github.com/shambhubhandari/Houseprice_prediction" target="_blank" class="repo-item">
                             <div class="repo-title-wrapper"><i class="fab fa-github"></i> <span class="repo-title">Houseprice_prediction</span></div>
@@ -92,7 +212,7 @@
             <!-- PROJECT 2 -->
             <div class="project-card">
                 <div class="project-header">
-                    <div class="project-num">02</div>
+                    <div class="project-icon-box" style="color: #00bcd4; background: linear-gradient(135deg, rgba(0,188,212,0.2), rgba(0,188,212,0.05)); border-color: rgba(0,188,212,0.3); box-shadow: inset 0 0 15px rgba(0,188,212,0.1), 0 8px 16px rgba(0,0,0,0.2);"><i class="fas fa-microscope"></i></div>
                     <div class="project-title">Cancer Metastasis Prediction — SLN Histopathology</div>
                 </div>
                 <div class="project-body">
@@ -100,17 +220,48 @@
                         <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1600" alt="Cancer AI Theme" class="project-image">
                     </div>
                     <p>Deep learning-based framework using PyTorch for the automated analysis of digitized histopathology slides. Detects metastases in sentinel lymph nodes (SLNs) to match expert sensitivity, reduce pathologist workload, and enhance breast cancer staging. Structured using the cookiecutter MLOps template.</p>
-                    <div class="tag-list">
-                        <span class="tag">Python</span>
-                        <span class="tag">PyTorch</span>
-                        <span class="tag">Deep Learning</span>
-                        <span class="tag">Computer Vision</span>
-                        <span class="tag">MLOps</span>
+                    
+                    <div class="tech-stack">
+                        <i class="devicon-python-plain colored" title="Python"></i>
+                        <i class="devicon-pytorch-original colored" title="PyTorch"></i>
+                        <span class="tech-text">Deep Learning</span>
+                        <span class="tech-text">Computer Vision</span>
+                        <span class="tech-text">MLOps</span>
                     </div>
+
                     <div class="repo-list">
                         <a href="https://github.com/shambhubhandari/Cancer_detection" target="_blank" class="repo-item">
                             <div class="repo-title-wrapper"><i class="fab fa-github"></i> <span class="repo-title">Cancer_detection</span></div>
                             <p class="repo-desc">PyTorch framework for automated detection of metastases in SLN slides.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 3 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon-box" style="color: #2e8b57; background: linear-gradient(135deg, rgba(46,139,87,0.2), rgba(46,139,87,0.05)); border-color: rgba(46,139,87,0.3); box-shadow: inset 0 0 15px rgba(46,139,87,0.1), 0 8px 16px rgba(0,0,0,0.2);"><i class="fas fa-satellite"></i></div>
+                    <div class="project-title">AI for Earth Observation (AI4EO)</div>
+                </div>
+                <div class="project-body">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600" alt="Earth Observation AI" class="project-image">
+                    </div>
+                    <p>Applications of advanced machine learning techniques to satellite datasets for Earth Observation. Features implementations of transformers, Gaussian processes, and deep learning models for satellite imagery segmentation and analysis, alongside automated deployment of these ML models on AWS.</p>
+                    
+                    <div class="tech-stack">
+                        <i class="devicon-python-plain colored" title="Python"></i>
+                        <i class="devicon-amazonwebservices-original colored" title="AWS"></i>
+                        <span class="tech-text">Deep Learning</span>
+                        <span class="tech-text">Transformers</span>
+                        <span class="tech-text">Satellite Data</span>
+                    </div>
+
+                    <div class="repo-list">
+                        <a href="https://github.com/shambhubhandari/AI4EO_UCL" target="_blank" class="repo-item">
+                            <div class="repo-title-wrapper"><i class="fab fa-github"></i> <span class="repo-title">AI4EO_UCL</span></div>
+                            <p class="repo-desc">ML and deep learning models applied to satellite datasets.</p>
                         </a>
                     </div>
                 </div>
