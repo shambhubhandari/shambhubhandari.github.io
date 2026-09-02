@@ -71,7 +71,7 @@ section .title::before {
   position: absolute;
   bottom: 0px;
   left: 50%;
-  width: 180px;
+  width: 250px;
   height: 3px;
   background: #111;
   transform: translateX(-50%);
@@ -81,9 +81,12 @@ section .title::after {
   position: absolute;
   bottom: -8px;
   left: 50%;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
   color: crimson;
-  padding: 0 5px;
+  padding: 0 10px;
   background: #fff;
   transform: translateX(-50%);
 }
@@ -529,7 +532,7 @@ section .title::after {
 }
 
 .about .title::after {
-  content: "what i am";
+  content: "academic background";
 }
 
 .about .about-content .left {
@@ -580,7 +583,7 @@ section .title::after {
 }
 
 .skills .title::after {
-  content: "what i know";
+  content: "methodology & tools";
 }
 
 .skills .skills-content .column {
@@ -1316,7 +1319,7 @@ footer span a:hover {
 
 /* ===== CUSTOM: About section ===== */
 .about .title::after {
-  content: "who i am";
+  content: "academic background";
 }
 
 .about-bio {
@@ -1391,7 +1394,7 @@ footer span a:hover {
 }
 
 .skills .title::after {
-  content: "what i know";
+  content: "methodology & tools";
 }
 
 /* ===== CUSTOM: Skills tag grid ===== */
@@ -2003,12 +2006,22 @@ footer span a:hover {
 
 .blog-main-title {
   font-family: "Ubuntu", sans-serif;
-  font-size: 2.2rem;
-  font-weight: 900;
+  font-size: 2.1rem;
+  font-weight: 700;
   color: #fff;
-  text-transform: uppercase;
-  margin: 0 0 20px;
-  letter-spacing: 2px;
+  text-transform: none;
+  margin: 0 0 6px;
+  letter-spacing: 0.5px;
+}
+
+.blog-main-subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: #a0a0b8;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0 0 22px;
+  letter-spacing: 0.3px;
 }
 
 .blog-bio {
@@ -2109,6 +2122,23 @@ footer span a:hover {
   padding: 1px 6px;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+.highlight-list li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.highlight-list li a:hover {
+  color: #ff4d4d;
+  text-decoration: underline;
+}
+
+.highlight-list li em {
+  color: #c8c8e0;
+  font-style: normal;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
