@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="utf-8" />
@@ -20,10 +20,10 @@
         var params = new URLSearchParams(window.location.search);
         var qTheme = params.get('theme');
         var t = qTheme || localStorage.getItem('bento_theme');
-        if (t === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        } else {
+        if (t === 'dark') {
           document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
         }
         if (qTheme) {
           localStorage.setItem('bento_theme', qTheme);
@@ -2937,8 +2937,8 @@
       </ul>
       <div class="nav-actions-group" style="display:flex; align-items:center; gap:8px;">
         <button class="search-trigger" id="searchTrigger" aria-label="Search site" title="Search site (Ctrl+K)"><i class="fas fa-search"></i></button>
-        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch to White mode" title="Dark mode active · Switch to White mode">
-          <i class="fas fa-sun" id="themeToggleIcon"></i>
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch to Dark mode" title="Light mode active · Click to switch to Dark mode">
+          <i class="fas fa-moon" id="themeToggleIcon"></i>
         </button>
         <div class="menu-btn"><i class="fas fa-bars"></i></div>
       </div>
@@ -4909,12 +4909,12 @@
           btn.setAttribute('aria-label', 'Switch to Dark mode');
         } else {
           icon.className = 'fas fa-sun';
-          btn.setAttribute('title', 'Dark mode active · Click to switch to White mode');
-          btn.setAttribute('aria-label', 'Switch to White mode');
+          btn.setAttribute('title', 'Dark mode active · Click to switch to Light mode');
+          btn.setAttribute('aria-label', 'Switch to Light mode');
         }
       }
 
-      var current = root.getAttribute('data-theme') || 'dark';
+      var current = root.getAttribute('data-theme') || 'light';
       syncToggle(current);
 
       if (btn) {
