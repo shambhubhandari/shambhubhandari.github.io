@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Shambhu Bhandari Sharma | Physicist &amp; Data Scientist</title>
+  <meta
+    content="PhD Researcher in Theoretical and Computational Condensed Matter Physics at UCL. 11 peer-reviewed publications."
+    name="description" />
+  <link href="../images/favicon.png" rel="icon" type="image/png" />
+  <link href="../styles/style.css?v=20260502" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+</head>
+
+<body>
+  <div id="scroll-progress"></div>
+  <div id="vanta-bg-container" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;">
+  </div>
+  <div class="scroll-up-btn">
+    <i class="fas fa-angle-up"></i>
+  </div>
+  <nav class="navbar">
+    <div class="max-width">
+      <div class="logo">
+        <a href="#">Shambhu<span style="color:crimson;">.</span></a>
+      </div>
+      <ul class="menu">
+        <li class="has-dropdown">
+          <a href="#about">About</a>
+          <ul class="dropdown">
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="awards.html">Awards</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#">Research</a>
+          <ul class="dropdown">
+            <li class="has-submenu">
+              <a href="#">Projects ›</a>
+              <ul class="submenu">
+                <li><a href="projects.html">STEM</a></li>
+                <li><a href="mlops.html">MLOps</a></li>
+              </ul>
+            </li>
+            <li><a href="#publications">Publications</a></li>
+          </ul>
+        </li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li class="has-dropdown">
+          <a href="#">Library</a>
+          <ul class="dropdown">
+            <li><a href="machine_learning.html">Machine Learning</a></li>
+            <li><a href="physics.html">Physics &amp; Chemistry</a></li>
+            <li><a href="quantum.html">Quantum Computing</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown">
+            <li><a href="useful_sites.html">Useful Sites</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="wellbeing.html">Wellbeing</a></li>
+          </ul>
+        </li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="search-trigger" id="searchTrigger" aria-label="Search site">
+        <i class="fas fa-search"></i>
+      </button>
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== SEARCH OVERLAY ========== -->
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Site search">
+    <div class="search-modal">
+      <div class="search-input-row">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search sections, publications, skills…" autocomplete="off"
+          spellcheck="false" />
+        <button id="searchClose" aria-label="Close search"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+  <!-- ========== HOME ========== -->
+  <section class="home blog-home" id="home">
+    <div class="home-hero">
+
+      <!-- MAIN CONTENT -->
+      <main class="blog-main">
+        <h1 class="blog-main-title">Research Focus &amp; Scientific Contributions</h1>
+        <p class="blog-main-subtitle">First-principles calculations, atomistic modelling, machine learning, agentic AI systems for workflow automation, and AI-driven materials discovery</p>
+
+        <!-- Intro slides carousel -->
+        <style>
+          @keyframes title-in {
+            from { opacity:0; transform:translateY(8px); }
+            to   { opacity:1; transform:translateY(0); }
+          }
+          #slide-title { animation: title-in 0.5s ease forwards; }
+          @keyframes hl-fade-up {
+            from { opacity:0; transform:translateY(14px); }
+            to   { opacity:1; transform:translateY(0); }
+          }
+          .highlight-list li {
+            opacity: 0;
+            animation: hl-fade-up 0.5s ease forwards;
+          }
+          .highlight-list li:nth-child(1) { animation-delay: 0.1s; }
+          .highlight-list li:nth-child(2) { animation-delay: 0.25s; }
+          .highlight-list li:nth-child(3) { animation-delay: 0.4s; }
+        </style>
+        <div id="slides-wrap" style="position:relative;left:-60px;width:calc(100% + 120px);aspect-ratio:16/9;background:#0d0d1a;cursor:pointer;border-radius:18px;overflow:hidden;">
+          <img id="slide-a" src="../slides/pngs/slide-1.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:1;transition:opacity 0.6s ease;">
+          <img id="slide-b" src="../slides/pngs/slide-2.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.6s ease;">
+          <div style="position:absolute;inset:0;box-shadow:inset 0 0 80px 40px #0d0d1a;border-radius:18px;pointer-events:none;"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 18px;pointer-events:none;">
+            <button id="slide-prev" style="pointer-events:all;background:rgba(0,0,0,0.5);border:none;color:#fff;font-size:28px;width:40px;height:40px;border-radius:50%;cursor:pointer;line-height:1;">&#8249;</button>
+            <button id="slide-next" style="pointer-events:all;background:rgba(0,0,0,0.5);border:none;color:#fff;font-size:28px;width:40px;height:40px;border-radius:50%;cursor:pointer;line-height:1;">&#8250;</button>
+          </div>
+          <div id="slide-title" style="position:absolute;bottom:22px;left:0;right:0;text-align:center;font-size:14px;font-weight:700;letter-spacing:.06em;pointer-events:none;padding:0 80px;color:#fff;text-shadow:0 0 14px rgba(220,20,60,0.9),0 0 4px rgba(220,20,60,0.6),0 2px 8px rgba(0,0,0,1);">High-Throughput DFT Screening &amp; ML</div>
+          <div id="slide-counter" style="position:absolute;top:12px;right:16px;background:rgba(0,0,0,0.45);color:#aaa;font-size:11px;padding:2px 8px;border-radius:10px;pointer-events:none;">1 / 7</div>
+        </div>
+        <script src="../slides/pngs/slides.js"></script>
+        <script src="../slides/carousel.js"></script>
+
+        <div class="blog-news">
+          <h3 class="blog-news-title">Research Highlights</h3>
+          <ul class="highlight-list">
+            <li><span class="hl-tag">New Preprint</span> <span><a href="https://arxiv.org/abs/2608.29665" target="_blank">Evaluating a 4B open-weights local LLM for agentic DFT workflows: a literature reproducibility audit</a> &mdash; <em>arXiv:2608.29665</em>, Aug 2026</span></li>
+            <li><span class="hl-tag">Publication</span> <span><a href="https://pubs.aip.org/aip/jcp/article/162/18/184502/3346477" target="_blank">Ab initio phase diagrams of binary alloys in the low solute concentration limit</a> &mdash; <em>The Journal of Chemical Physics</em>, May 2025</span></li>
+            <li><span class="hl-tag">Publication</span> <span><a href="https://www.sciencedirect.com/science/article/pii/S0169433226016156" target="_blank">Pentagonal PdTe₂ monolayer for sustainable solar-driven hydrogen production</a> &mdash; <em>Applied Surface Science</em>, Jan 2026</span></li>
+          </ul>
+        </div>
+      </main>
+
+    </div>
+  </section>
+  <!-- ========== ABOUT ========== -->
+  <section class="about" id="about">
+    <div class="max-width">
+      <h2 class="title">Academic Profile</h2>
+
+      <!-- Intro -->
+      <p class="about-bio">PhD Researcher in Theoretical and Computational Condensed Matter Physics at University
+        College London. My work employs first-principles DFT, ab initio molecular dynamics, and machine learning to
+        study structural, electronic, and thermomechanical properties of materials under extreme conditions — with a
+        focus on high-pressure phase diagrams of binary alloys, low-dimensional materials, and electrides.</p>
+
+      <!-- Experience -->
+      <div class="tl-section" id="experience">
+        <h3 class="tl-heading">Experiences</h3>
+        <div class="tl-list">
+
+          <div class="tl-item">
+            <div class="tl-badge" style="background:#fff;padding:2px;"><img src="../images/logos/university-college-london-ucl-vector-logo.png" alt="UCL" style="width:40px;height:40px;object-fit:contain;border-radius:6px;"></div>
+            <div class="tl-body">
+              <div class="tl-role">PhD Candidate &middot; Doctoral Researcher</div>
+              <div class="tl-org">University College London &middot; Full-time</div>
+              <div class="tl-date">Dec 2022 &ndash; Present &middot; Thesis Submitted 2026</div>
+              <ul class="acad-bullet-list">
+                <li>Formulated <em>ab initio</em> frameworks to compute high-pressure phase diagrams of binary alloys.</li>
+                <li>Designed and automated HPC workflows for melting curve and coexistence determination.</li>
+                <li>Parameterized and validated empirical and machine-learning interatomic potentials (MLIPs).</li>
+                <li>Investigated pressure-induced solid–solid polymorphism and mechanical stability from first principles.</li>
+                <li>Quantified premelting phenomena, defect energetics, and thermomechanical properties of alloys.</li>
+                <li>Modeled water-splitting electrocatalysts, electride systems, and defects with experimental teams.</li>
+              </ul>
+              <div class="tl-tags"><span class="tl-tag"><i class="devicon-python-plain"></i> Python</span><span class="tl-tag"><i class="devicon-tensorflow-original"></i> TensorFlow</span><span class="tl-tag"><i class="devicon-scikitlearn-plain"></i> scikit-learn</span><span class="tl-tag">JAX</span><span class="tl-tag">SIESTA</span><span class="tl-tag">VESTA</span><span class="tl-tag">ASE</span><span class="tl-tag">pymatgen</span><span class="tl-tag"><i class="devicon-matplotlib-plain"></i> Matplotlib</span><span class="tl-tag">Seaborn</span></div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-badge" style="background:#fff;padding:2px;"><img src="../images/logos/Khalifa-University-Logo.png" alt="KU" style="width:40px;height:40px;object-fit:contain;border-radius:6px;"></div>
+            <div class="tl-body">
+              <div class="tl-role">Research Associate</div>
+              <div class="tl-org">Khalifa University &middot; Full-time &middot; UAE</div>
+              <div class="tl-date">Jan 2022 &ndash; Nov 2022 &middot; 11 mos</div>
+              <ul class="acad-bullet-list">
+                <li>Executed high-throughput DFT screening to discover and predict functional 2D materials.</li>
+                <li>Investigated facet-dependent surface energetics and electronic structure for photocatalytic applications.</li>
+                <li>Mentored postgraduate researchers in computational project design and workflow execution.</li>
+              </ul>
+              <div class="tl-tags"><span class="tl-tag">VASP</span><span class="tl-tag">Quantum ESPRESSO</span><span class="tl-tag">ASE</span><span class="tl-tag">pymatgen</span><span class="tl-tag"><i class="devicon-matplotlib-plain"></i> Matplotlib</span><span class="tl-tag">Seaborn</span><span class="tl-tag">OriginLab</span></div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-badge" style="background:#2a6e3a;">SGC</div>
+            <div class="tl-body">
+              <div class="tl-role">Lecturer in Physics</div>
+              <div class="tl-org">Shusma Godawari College &middot; Part-time</div>
+              <div class="tl-date">Feb 2019 &ndash; Nov 2021 &middot; 2 yrs 10 mos</div>
+              <p class="tl-desc">Taught elementary-level physics courses. Co-supervised projects and graduate thesis works. Mentored students through their research endeavors.</p>
+              <div class="tl-tags"><span class="tl-tag"><i class="fas fa-atom"></i> Physics</span><span class="tl-tag"><i class="fas fa-flask"></i> Chemistry</span><span class="tl-tag"><i class="devicon-latex-original"></i> LaTeX</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="tl-section" id="education">
+        <h3 class="tl-heading">Education</h3>
+        <div class="tl-list">
+
+          <div class="tl-item">
+            <div class="tl-badge" style="background:#fff;padding:2px;"><img src="../images/logos/university-college-london-ucl-vector-logo.png" alt="UCL" style="width:40px;height:40px;object-fit:contain;border-radius:6px;"></div>
+            <div class="tl-body">
+              <div class="tl-role">Doctor of Philosophy (PhD), Condensed Matter Physics</div>
+              <div class="tl-org">University College London, London, UK</div>
+              <div class="tl-date">2022 &ndash; Present</div>
+              <p class="tl-thesis"><span class="tl-thesis-label">Thesis</span> Ab initio Methods for High-Pressure Phase Diagram Calculations within the Low-Solute Limit</p>
+              <p class="tl-advisor"><span class="tl-thesis-label">Advisor</span> <a href="https://www.ucl.ac.uk/earth-sciences/people/academic/prof-dario-alfe" target="_blank" rel="noopener">Prof. Dario Alf&egrave;</a>, UCL Earth Sciences</p>
+              <div class="tl-tags">
+                <span class="tl-tag">Quantum Mechanics</span>
+                <span class="tl-tag">DFT</span>
+                <span class="tl-tag">VASP</span>
+                <span class="tl-tag">SIESTA</span>
+                <span class="tl-tag">Ab initio MD</span>
+                <span class="tl-tag">Fortran</span>
+                <span class="tl-tag">pymatgen</span>
+                <span class="tl-tag">ASE</span>
+                <span class="tl-tag"><i class="devicon-python-plain"></i> Python</span>
+                <span class="tl-tag"><i class="devicon-scikitlearn-plain"></i> scikit-learn</span>
+                <span class="tl-tag"><i class="devicon-pytorch-original"></i> PyTorch</span>
+                <span class="tl-tag"><i class="devicon-tensorflow-original"></i> TensorFlow</span>
+                <span class="tl-tag"><i class="devicon-pandas-original"></i> pandas</span>
+                <span class="tl-tag">matplotlib</span>
+                <span class="tl-tag">Statistics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-badge" style="background:#fff;padding:2px;"><img src="../images/logos/tribhuvan-university-tu-seeklogo.png" alt="TU" style="width:40px;height:40px;object-fit:contain;border-radius:6px;"></div>
+            <div class="tl-body">
+              <div class="tl-role">Master of Science in Physics</div>
+              <div class="tl-org">Tribhuvan University, Kathmandu, Nepal</div>
+              <div class="tl-date">2020</div>
+              <p class="tl-thesis"><span class="tl-thesis-label">Thesis</span> Ab initio Calculations of Structural, Electronic and Quantum Transport Properties of 2D Gold Monolayer</p>
+              <p class="tl-advisor"><span class="tl-thesis-label">Advisor</span> <a href="https://ku.edu.np/physics" target="_blank" rel="noopener">Prof. Rajendra Adhikari</a>, Kathmandu University</p>
+              <div class="tl-tags">
+                <span class="tl-tag">Quantum Mechanics</span>
+                <span class="tl-tag">DFT</span>
+                <span class="tl-tag">SIESTA</span>
+                <span class="tl-tag">Quantum Transport</span>
+                <span class="tl-tag">Fortran</span>
+                <span class="tl-tag">pymatgen</span>
+                <span class="tl-tag">ASE</span>
+                <span class="tl-tag"><i class="devicon-python-plain"></i> Python</span>
+                <span class="tl-tag"><i class="devicon-scikitlearn-plain"></i> scikit-learn</span>
+                <span class="tl-tag"><i class="devicon-pytorch-original"></i> PyTorch</span>
+                <span class="tl-tag"><i class="devicon-tensorflow-original"></i> TensorFlow</span>
+                <span class="tl-tag"><i class="devicon-pandas-original"></i> pandas</span>
+                <span class="tl-tag">matplotlib</span>
+                <span class="tl-tag">Statistics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-badge" style="background:#fff;padding:2px;"><img src="../images/logos/tribhuvan-university-tu-seeklogo.png" alt="TU" style="width:40px;height:40px;object-fit:contain;border-radius:6px;"></div>
+            <div class="tl-body">
+              <div class="tl-role">Bachelor of Science in Physics</div>
+              <div class="tl-org">Tribhuvan University, Nepal</div>
+              <div class="tl-date">2014</div>
+              <div class="tl-tags">
+                <span class="tl-tag">Classical Mechanics</span>
+                <span class="tl-tag">Quantum Mechanics</span>
+                <span class="tl-tag">Electrodynamics</span>
+                <span class="tl-tag">Thermodynamics</span>
+                <span class="tl-tag">Statistics</span>
+                <span class="tl-tag">Mathematical Physics</span>
+                <span class="tl-tag"><i class="devicon-python-plain"></i> Python</span>
+                <span class="tl-tag">Fortran</span>
+                <span class="tl-tag">matplotlib</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-badge" style="background:#1565c0;font-size:9px;">DS</div>
+            <div class="tl-body">
+              <div class="tl-role">Data Science &mdash; Self-learning</div>
+              <div class="tl-org">Coursera &middot; DeepLearning.AI &middot; Dataquest &middot; fast.ai &middot; Oxford</div>
+              <div class="tl-date">2019 &ndash; Present</div>
+              <p class="tl-desc">Continuously self-learning Data Science through online courses and real-world projects — covering ML, deep learning, data engineering, and generative AI.</p>
+              <div class="tl-tags"><span class="tl-tag"><i class="devicon-python-plain"></i> Python</span><span class="tl-tag"><i class="devicon-tensorflow-original"></i> TensorFlow</span><span class="tl-tag"><i class="devicon-scikitlearn-plain"></i> scikit-learn</span><span class="tl-tag">fast.ai</span><span class="tl-tag">JAX</span><span class="tl-tag"><i class="devicon-jupyter-plain"></i> Jupyter</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ========== SKILLS ========== -->
+  <section class="skills" id="skills">
+    <div class="max-width">
+      <h2 class="title">Technical Expertise</h2>
+      <div class="skills-content">
+        <div class="stacks">
+
+          <!-- Physics & Computational Science -->
+          <div class="stack-cat-block">
+            <div class="scat-title">⚛ DFT &amp; Quantum Chemistry</div>
+            <div class="stk-row">
+              <span class="stk-badge"><span class="si">⚛</span>VASP</span>
+              <span class="stk-badge"><span class="si">⚛</span>SIESTA</span>
+              <span class="stk-badge"><span class="si">⚛</span>Quantum Espresso</span>
+              <span class="stk-badge"><span class="si">⚛</span>CASTEP</span>
+              <span class="stk-badge"><span class="si">⚛</span>Wien2k</span>
+              <span class="stk-badge"><span class="si">⚛</span>DFT+U</span>
+              <span class="stk-badge"><span class="si">⚛</span>Hybrid Functionals</span>
+            </div>
+          </div>
+
+          <div class="stack-cat-block">
+            <div class="scat-title">🔥 Molecular Dynamics</div>
+            <div class="stk-row">
+              <span class="stk-badge"><span class="si">🔥</span>VASP-AIMD</span>
+              <span class="stk-badge"><span class="si">🔥</span>SIESTA-AIMD</span>
+              <span class="stk-badge"><span class="si">🔥</span>LAMMPS</span>
+              <span class="stk-badge"><span class="si">🔥</span>Arc_tut</span>
+              <span class="stk-badge"><span class="si">🔥</span>NVT / NPT ensembles</span>
+              <span class="stk-badge"><span class="si">🧬</span>DeepMD-kit</span>
+            </div>
+          </div>
+
+          <div class="stack-cat-block">
+            <div class="scat-title">🔬 Pre / Post-processing</div>
+            <div class="stk-row">
+              <span class="stk-badge"><span class="si">🔬</span>VESTA</span>
+              <span class="stk-badge"><span class="si">🔬</span>ASE</span>
+              <span class="stk-badge"><span class="si">🔬</span>GDIS</span>
+              <span class="stk-badge"><span class="si">🔬</span>WxDragon</span>
+              <span class="stk-badge"><span class="si">🔬</span>Avogadro</span>
+              <span class="stk-badge"><span class="si">🔬</span>Jmol</span>
+              <span class="stk-badge"><span class="si">📊</span>Xcrysden</span>
+              <span class="stk-badge"><span class="si">📊</span>Origin Lab</span>
+              <span class="stk-badge"><span class="si">📊</span>Gnuplot</span>
+              <span class="stk-badge"><span class="si">📊</span>Xmgrace</span>
+            </div>
+          </div>
+
+          <!-- Programming -->
+          <div class="stack-cat-block">
+            <div class="scat-title">💻 Programming</div>
+            <div class="stk-row">
+              <span class="stk-badge"><i class="devicon-python-plain colored si"></i>Python</span>
+              <span class="stk-badge"><i class="devicon-matlab-plain colored si"></i>MATLAB</span>
+              <span class="stk-badge"><i class="devicon-bash-plain colored si"></i>Bash / Shell</span>
+              <span class="stk-badge"><span class="si" style="color:#c084fc">𝔽</span>FORTRAN</span>
+              <span class="stk-badge"><span class="si" style="color:#e2b96e">∫</span>Mathematica</span>
+              <span class="stk-badge"><i class="devicon-mysql-plain colored si"></i>SQL</span>
+              <span class="stk-badge"><i class="devicon-javascript-plain colored si"></i>JavaScript</span>
+              <span class="stk-badge"><i class="devicon-github-original colored si"></i>Git / GitHub</span>
+            </div>
+          </div>
+
+          <!-- Machine Learning & AI -->
+          <div class="stack-cat-block cat-ai">
+            <div class="scat-title">🤖 Machine Learning &amp; AI</div>
+            <div class="stk-row">
+              <span class="stk-badge"><i class="devicon-scikitlearn-plain colored si"></i>Scikit-learn</span>
+              <span class="stk-badge"><i class="devicon-tensorflow-original colored si"></i>TensorFlow</span>
+              <span class="stk-badge"><i class="devicon-pytorch-plain colored si"></i>PyTorch</span>
+              <span class="stk-badge"><i class="devicon-keras-plain colored si"></i>Keras</span>
+              <span class="stk-badge"><span class="si">🌲</span>XGBoost</span>
+              <span class="stk-badge"><span class="si">🌲</span>Random Forest</span>
+              <span class="stk-badge"><span class="si">🔷</span>K-Means / Clustering</span>
+              <span class="stk-badge"><span class="si">🔍</span>Anomaly Detection</span>
+              <span class="stk-badge"><span class="si">🎯</span>Recommender Systems</span>
+              <span class="stk-badge"><span class="si">🕹</span>Reinforcement Learning</span>
+              <span class="stk-badge"><span class="si">🧠</span>CNN / ConvNets</span>
+              <span class="stk-badge"><span class="si">🔁</span>RNN / LSTM / GRU</span>
+              <span class="stk-badge"><span class="si">⚡</span>Transformer Architecture</span>
+              <span class="stk-badge"><span class="si">👁</span>Attention Mechanism</span>
+              <span class="stk-badge"><span class="si">🔄</span>Transfer Learning</span>
+              <span class="stk-badge"><span class="si">🤗</span>Hugging Face / BERT</span>
+              <span class="stk-badge"><span class="si">🔭</span>Physics-Informed ML</span>
+              <span class="stk-badge"><span class="si">📦</span>MLflow</span>
+              <span class="stk-badge"><span class="si">🔁</span>End-to-End ML Pipelines</span>
+            </div>
+          </div>
+
+          <!-- Generative AI & Agents (NEW) -->
+          <div class="stack-cat-block cat-llm">
+            <div class="scat-title">🧠 Generative AI &amp; Agents</div>
+            <div class="stk-row">
+              <span class="stk-badge"><span class="si">🦜</span>LangChain</span>
+              <span class="stk-badge"><span class="si">🕸</span>LangGraph</span>
+              <span class="stk-badge"><span class="si">🔌</span>MCP (Model Context Protocol)</span>
+              <span class="stk-badge"><span class="si">📚</span>RAG Pipelines</span>
+              <span class="stk-badge"><span class="si">🗃</span>Vector Databases</span>
+              <span class="stk-badge"><span class="si">🎛</span>PEFT / LoRA / QLoRA</span>
+              <span class="stk-badge"><span class="si">⚖</span>RLHF / DPO</span>
+              <span class="stk-badge"><span class="si">✍</span>Prompt Engineering</span>
+              <span class="stk-badge"><span class="si">🤖</span>Agentic AI Design</span>
+              <span class="stk-badge"><span class="si">🧬</span>LLM Fine-tuning</span>
+              <span class="stk-badge"><span class="si">🧠</span>LLM &amp; Claude API</span>
+            </div>
+          </div>
+
+          <!-- Data Engineering (NEW) -->
+          <div class="stack-cat-block cat-de">
+            <div class="scat-title">🗜 Data Engineering</div>
+            <div class="stk-row">
+              <span class="stk-badge"><i class="devicon-apachekafka-original colored si"></i>Apache Kafka</span>
+              <span class="stk-badge"><span class="si">⚡</span>AWS Kinesis</span>
+              <span class="stk-badge"><span class="si">🏗</span>AWS Redshift</span>
+              <span class="stk-badge"><span class="si">🔎</span>AWS Athena</span>
+              <span class="stk-badge"><i class="devicon-apacheairflow-original colored si"></i>Airflow</span>
+              <span class="stk-badge"><span class="si">🛠</span>dbt</span>
+              <span class="stk-badge"><span class="si">🏞</span>Data Lake / Warehouse</span>
+              <span class="stk-badge"><span class="si">🔄</span>ETL / ELT Pipelines</span>
+              <span class="stk-badge"><span class="si">🌊</span>Stream &amp; Batch Processing</span>
+            </div>
+          </div>
+
+          <!-- Data Analytics & Viz -->
+          <div class="stack-cat-block">
+            <div class="scat-title">📈 Data Analytics &amp; Viz</div>
+            <div class="stk-row">
+              <span class="stk-badge"><i class="devicon-pandas-plain colored si"></i>Pandas</span>
+              <span class="stk-badge"><i class="devicon-numpy-plain colored si"></i>NumPy</span>
+              <span class="stk-badge"><span class="si">⚡</span>Spark</span>
+              <span class="stk-badge"><i class="devicon-matplotlib-plain colored si"></i>Matplotlib</span>
+              <span class="stk-badge"><span class="si">📉</span>Seaborn</span>
+              <span class="stk-badge"><span class="si">📊</span>Plotly</span>
+              <span class="stk-badge"><span class="si">🗺</span>Folium</span>
+              <span class="stk-badge"><span class="si">📊</span>IBM Cognos</span>
+              <span class="stk-badge"><span class="si">📗</span>Excel / Power BI</span>
+              <span class="stk-badge"><span class="si">🎲</span>Statistical Analysis</span>
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div class="stack-cat-block">
+            <div class="scat-title">🗄 Databases</div>
+            <div class="stk-row">
+              <span class="stk-badge"><i class="devicon-mysql-original colored si"></i>MySQL</span>
+              <span class="stk-badge"><i class="devicon-postgresql-plain colored si"></i>PostgreSQL</span>
+              <span class="stk-badge"><i class="devicon-mongodb-plain colored si"></i>MongoDB</span>
+              <span class="stk-badge"><span class="si">🕸</span>Graph DB</span>
+              <span class="stk-badge"><span class="si">🔍</span>Vector DB (Chroma · Pinecone)</span>
+            </div>
+          </div>
+
+          <!-- Cloud & DevOps -->
+          <div class="stack-cat-block">
+            <div class="scat-title">☁ Cloud &amp; DevOps</div>
+            <div class="stk-row">
+              <span class="stk-badge"><i class="devicon-amazonwebservices-original colored si"></i>AWS</span>
+              <span class="stk-badge"><span class="si">🤖</span>AWS SageMaker</span>
+              <span class="stk-badge"><span class="si">🪨</span>AWS Bedrock</span>
+              <span class="stk-badge"><i class="devicon-azure-plain colored si"></i>Azure</span>
+              <span class="stk-badge"><i class="devicon-terraform-original colored si"></i>Terraform</span>
+              <span class="stk-badge"><i class="devicon-docker-plain colored si"></i>Docker</span>
+              <span class="stk-badge"><span class="si">🔌</span>REST API</span>
+            </div>
+          </div>
+
+          <!-- OS & HPC -->
+          <div class="stack-cat-block">
+            <div class="scat-title">🖥 OS &amp; HPC</div>
+            <div class="stk-row">
+              <span class="stk-badge"><i class="devicon-linux-plain colored si"></i>Linux (Ubuntu)</span>
+              <span class="stk-badge"><i class="devicon-linux-plain colored si"></i>Kali Linux</span>
+              <span class="stk-badge"><i class="devicon-windows8-original colored si"></i>Windows</span>
+              <span class="stk-badge"><span class="si">⚙</span>HPC Clusters</span>
+              <span class="stk-badge"><span class="si">⚙</span>SLURM / PBS</span>
+            </div>
+          </div>
+
+          <!-- Documentation & Office -->
+          <div class="stack-cat-block">
+            <div class="scat-title">📝 Documentation &amp; Office</div>
+            <div class="stk-row">
+              <span class="stk-badge"><i class="devicon-latex-original colored si"></i>LaTeX</span>
+              <span class="stk-badge"><i class="devicon-jupyter-plain colored si"></i>Jupyter</span>
+              <span class="stk-badge"><span class="si">📓</span>Google Colab</span>
+              <span class="stk-badge"><i class="devicon-microsoftsqlserver-plain colored si"></i>MS Office 365</span>
+              <span class="stk-badge"><span class="si">📐</span>Visio</span>
+              <span class="stk-badge"><span class="si">📊</span>PowerPoint</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========== SECTION 6: PUBLICATIONS ========== -->
+  <section class="publications-section" id="publications">
+    <div class="max-width">
+      <div class="section-header-center" style="margin-bottom: 36px;">
+        <h2>Publications</h2>
+      </div>
+
+      <div class="pub-grid">
+        <div class="pub-card">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">01</span>
+            <span class="pub-card-year">2026</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">arXiv</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">arXiv:2608.29665</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Evaluating a 4B open-weights local LLM for agentic DFT workflows: a literature reproducibility audit</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong></p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://arxiv.org/abs/2608.29665" target="_blank"><i class="fas fa-file-pdf"></i> Read Preprint</a>
+            <span class="pub-cites pub-cites-empty" data-title="Evaluating a 4B open-weights local LLM for agentic DFT workflows">—</span>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">02</span>
+            <span class="pub-card-year">2026</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">arXiv</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">arXiv:2608.02225</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Ab initio High-Pressure Phase Diagrams of Al–Mg Alloys in the Low Solute Concentration Limit</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, S. Mehta, D. Alfè</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://arxiv.org/abs/2608.02225" target="_blank"><i class="fas fa-file-pdf"></i> Read Preprint</a>
+            <span class="pub-cites pub-cites-empty" data-title="Ab initio High-Pressure Phase Diagrams of Al-Mg Alloys in the Low Solute Concentration Limit">—</span>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">03</span>
+            <span class="pub-card-year">2026</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Appl. Surf. Sci.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 744, 167411</span>
+          </div>
+          <h3 class="pub-card-title pub-title">First-principles electronic structure and photocatalytic water splitting under uniaxial strain in pentagonal PdTe₂ monolayer</h3>
+          <p class="pub-card-authors pub-citation">N. Kumar, <strong class="pub-author-me">S. B. Sharma</strong>, D. Alfè, R. Pandey, N. Tit</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://doi.org/10.1016/j.apsusc.2026.167411" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites pub-cites-empty" data-title="First-principles electronic structure and photocatalytic water splitting under uniaxial strain in pentagonal PdTe2 monolayer">—</span>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">04</span>
+            <span class="pub-card-year">2026</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">J. Chem. Inf. Model.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Under Review</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Comment on "Hybrid Graph-Machine Learning Framework for Accurate and Interpretable Band Gap Prediction"</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong></p>
+          <div class="pub-card-footer">
+            <span class="pub-btn-action is-review"><i class="fas fa-clock"></i> Under Review</span>
+            <span class="pub-cites pub-cites-empty">—</span>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">05</span>
+            <span class="pub-card-year">2025</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">J. Chem. Phys.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 162, 184502</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Ab initio phase diagrams of binary alloys in the low solute concentration limit</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, S. Mehta, D. Alfè</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://pubs.aip.org/aip/jcp/article/162/18/184502/3346477" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Ab initio phase diagrams of binary alloys in the low solute limit">0 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">06</span>
+            <span class="pub-card-year">2024</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Mater. Horiz.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 11, 3613–3622</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Signature of low dimensional quasi-F center in zirconium rich oxide</h3>
+          <p class="pub-card-authors pub-citation">D. Thapa, <strong class="pub-author-me">S. B. Sharma</strong>, D. Alfè, D. Kilin, S. Kilina</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://pubs.rsc.org/en/content/articlepdf/2024/mh/d4mh00437j" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Signature of low dimensional quasi-F center in zirconium">8 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">07</span>
+            <span class="pub-card-year">2024</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">J. Phys.: Conf. Ser.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 2726, 012014</span>
+          </div>
+          <h3 class="pub-card-title pub-title">New 2D penta-SiPN: A wide and indirect bandgap semiconductor</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, I. Qattan, S. KC, S. Abedrabbo</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://doi.org/10.1088/1742-6596/2726/1/012014" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="New 2D penta-SiPN A wide and indirect bandgap semiconductor">1 citation</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">08</span>
+            <span class="pub-card-year">2023</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Physica E</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 146, 115517</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Structural deformation and mechanical response of CrS₂, CrSe₂ and Janus CrSSe</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, R. Paudel, R. Adhikari, G. C. Kaphle, D. Paudyal</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://drive.google.com/file/d/16YVTXeDHekrn8O0gKUgDTUx0dh84Yxqg/view" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Structural deformation and mechanical response of CrS2 CrSe2 and Janus CrSSe">29 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">09</span>
+            <span class="pub-card-year">2023</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Comput. Mater. Sci.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 218, 111952</span>
+          </div>
+          <h3 class="pub-card-title pub-title">First-principles DFT study of structural, electronic and optical properties of Cu-doped TiO₂ (112) surface for enhanced visible-light photocatalysis</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma</strong>, I. Qattan, M. Abi Jaoude, S. Abedrabbo</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://www.sciencedirect.com/science/article/pii/S0927025622001628" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="First-principles DFT study of structural electronic and optical properties of Cu-doped TiO2">19 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">10</span>
+            <span class="pub-card-year">2022</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">ACS Appl. Electron. Mater.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 4, 2561–2569</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Penta-SiCN: A highly auxetic monolayer</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, I. Qattan, M. Jaishi, D. Paudyal</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://drive.google.com/file/d/1yzqJC_PFNjmR5ae6Fx89qlW2rSO0t2_2/view" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Penta-SiCN A highly auxetic monolayer">23 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">11</span>
+            <span class="pub-card-year">2022</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Appl. Surf. Sci.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 593, 153239</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Enhanced optoelectronic and elastic responses in fluorinated penta-BN₂</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, S. KC, D. Paudyal</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://drive.google.com/file/d/1kjTT-k3mhUwgDbxT2vv3A_mFl6m9hfsb/view" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Enhanced optoelectronic and elastic responses in fluorinated">13 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">12</span>
+            <span class="pub-card-year">2022</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Appl. Surf. Sci.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 599, 153997</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Enhanced mechanical, electronic, magnetic and optical properties of 2D CrX₂</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, I. Qattan</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://drive.google.com/file/d/1usiS1C6nJlAw4Zh1xrIDvQcZmrxiz-To/view" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Enhanced mechanical electronic magnetic and optical properties">10 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">13</span>
+            <span class="pub-card-year">2022</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">ACS Omega</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 7, 36235–36243</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Large Negative Poisson's Ratio and Anisotropic Mechanics in Penta-B₂C</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, I. Qattan, S. KC, A. Alsaad</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://drive.google.com/file/d/1aGtlwncsljegTvuz-FWhfuX4OLEiMv2H/view" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Large Negative Poisson Ratio and Anisotropic Mechanics in Penta B2C">20 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">14</span>
+            <span class="pub-card-year">2022</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Carbon Trends</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 7, 100162</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Strain dependent electronic and optical responses of penta-BCN monolayer</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, R. Bhatta, R. Adhikari, D. Paudyal</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://drive.google.com/file/d/1wZ5r92sbI7Ep2DCjE0LYTZYTyr8lhZ4m/view" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Strain dependent electronic and optical responses of penta-BCN monolayer">21 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">15</span>
+            <span class="pub-card-year">2022</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Nanomaterials</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 12, 4068</span>
+          </div>
+          <h3 class="pub-card-title pub-title">First-Principles Prediction of New 2D p-SiPN: A Wide Bandgap Semiconductor</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, I. Qattan, S. KC, S. Abedrabbo</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://drive.google.com/file/d/1yTWzK2EcEBPyn5EAXZUiSu-xvV0ZXIsu/view" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="First-Principles Prediction of New 2D p-SiPN A Wide Bandgap Semiconductor">10 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">16</span>
+            <span class="pub-card-year">2022</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Asia Pac. Phys. Conf.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">pp. 73–79</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Highly Tunable Negative Poisson's Ratio in Two-Dimensional Penta Structures</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, I. Qattan, S. KC</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://scholar.google.com/citations?user=M_YUZngAAAAJ" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites pub-cites-empty" data-title="Highly Tunable Negative Poisson Ratio in Two-Dimensional Penta Structures">—</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">17</span>
+            <span class="pub-card-year">2021</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Eur. Phys. J. B</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 94, 128</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Structural, electronic, magnetic and mechanical properties of Cr₂X₃ (X=S,Se,Te)</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, R. Bhatta, K. R. Sigdel, R. Adhikari, G. C. Kaphle</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://drive.google.com/u/0/uc?id=1ILNaxusoPBDFmPPOIU9gZ4CZ_Z8mUG1X&export=download" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Structural electronic magnetic and mechanical properties of Cr2X3">19 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">18</span>
+            <span class="pub-card-year">2021</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Chem. Phys. Lett.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">2021</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Optoelectronic and elastic response of fluorinated hexagonal boron nitride</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, R. Bhatta, R. Adhikari</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://chemrxiv.org" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Optoelectronic and elastic response of fluorinated hexagonal boron nitride">3 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">19</span>
+            <span class="pub-card-year">2021</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">Carbon Trends</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">100162</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Strain driven negative Poisson's ratio and extraordinary light absorption in 2D penta-CN₂</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, R. Bhatta, R. Adhikari, D. Paudyal</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://doi.org/10.1016/j.cartre.2021.100162" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Strain driven negative Poisson ratio and extraordinary light absorption">3 citations</span>
+          </div>
+        </div>
+
+        <div class="pub-card pub-card-hidden">
+          <div class="pub-card-meta-bar">
+            <span class="pub-card-idx">20</span>
+            <span class="pub-card-year">2021</span>
+          </div>
+          <div class="pub-card-venue">
+            <span class="pub-venue-name">J. Nepal Phys. Soc.</span>
+            <span class="pub-venue-sep">·</span>
+            <span class="pub-venue-detail">Vol. 7, No. 1</span>
+          </div>
+          <h3 class="pub-card-title pub-title">Strain induced electronic and optical properties of 2D silicene</h3>
+          <p class="pub-card-authors pub-citation"><strong class="pub-author-me">S. B. Sharma*</strong>, R. Bhatta, R. Adhikari, G. C. Kaphle</p>
+          <div class="pub-card-footer">
+            <a class="pub-btn-action" href="https://doi.org/10.3126/jnps.v7i1.36442" target="_blank"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+            <span class="pub-cites" data-title="Strain induced electronic and optical properties of 2D silicene">11 citations</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px;">
+        <a href="https://scholar.google.com/citations?hl=en&user=M_YUZngAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="btn-dual btn-dual-code" style="display:inline-flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#4285F4" style="vertical-align: middle;"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          View Complete Publication Record on Google Scholar &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 7: CONTACT ========== -->
+  <section class="contact-section" id="contact">
+    <div class="max-width">
+      <div class="section-header-center" style="margin-bottom: 32px; text-align: center;">
+        <h2 style="font-size: 32px; font-weight: 700; color: #fff;">Contact</h2>
+      </div>
+
+      <div class="contact-bento-card">
+        <div style="text-align: left; margin-bottom: 24px;">
+          <span class="contact-badge"><i class="fas fa-paper-plane"></i> GET IN TOUCH</span>
+          <p class="contact-lead">Open to research collaborations, academic discussions, and opportunities in computational physics &amp; scientific AI.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Channel 1: Name & Bio -->
+          <div class="contact-channel-tile">
+            <div>
+              <div class="contact-tile-icon red">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <div class="contact-tile-label">NAME</div>
+              <div class="contact-tile-val">Shambhu Bhandari Sharma</div>
+              <div class="contact-tile-sub">PhD Researcher · UCL Physics &amp; Astronomy</div>
+            </div>
+            <div class="contact-tile-action">
+              <a href="#about" class="contact-action-btn red-btn"><i class="fas fa-id-badge"></i> View Bio</a>
+            </div>
+          </div>
+
+          <!-- Channel 2: Email -->
+          <div class="contact-channel-tile">
+            <div>
+              <div class="contact-tile-icon cyan">
+                <i class="fas fa-envelope-open-text"></i>
+              </div>
+              <div class="contact-tile-label">EMAIL</div>
+              <div class="contact-tile-val" style="font-size: 14px;">
+                <a href="mailto:shambhu.sharma.22@ucl.ac.uk" class="contact-tile-link">shambhu.sharma.22@ucl.ac.uk</a>
+              </div>
+              <div class="contact-tile-sub">Direct academic &amp; research inquiries</div>
+            </div>
+            <div class="contact-tile-action">
+              <a href="mailto:shambhu.sharma.22@ucl.ac.uk" class="contact-action-btn cyan-btn"><i class="fas fa-paper-plane"></i> Send Email</a>
+            </div>
+          </div>
+
+          <!-- Channel 3: UCL Profile -->
+          <div class="contact-channel-tile">
+            <div>
+              <div class="contact-tile-icon green">
+                <i class="fas fa-university"></i>
+              </div>
+              <div class="contact-tile-label">UCL PROFILE</div>
+              <div class="contact-tile-val" style="font-size: 13px;">
+                <a href="https://profiles.ucl.ac.uk/92491-shambhu-bhandari-sharma" target="_blank" rel="noopener noreferrer" class="contact-tile-link green-link">profiles.ucl.ac.uk/92491-shambhu-bhandari-sharma</a>
+              </div>
+              <div class="contact-tile-sub">Official UCL IRIS Profile &amp; Directory</div>
+            </div>
+            <div class="contact-tile-action">
+              <a href="https://profiles.ucl.ac.uk/92491-shambhu-bhandari-sharma" target="_blank" rel="noopener noreferrer" class="contact-action-btn green-btn"><i class="fas fa-external-link-alt"></i> View Profile &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social & Quick Links Row -->
+        <div class="contact-social-row">
+          <a href="https://github.com/shambhuphysics" target="_blank" rel="noopener noreferrer" class="contact-social-chip">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://linkedin.com/in/shambhu-bhandari-sharma-478250176/" target="_blank" rel="noopener noreferrer" class="contact-social-chip">
+            <i class="fab fa-linkedin" style="color:#0ea5e9;"></i> LinkedIn
+          </a>
+          <a href="https://scholar.google.com/citations?user=M_YUZngAAAAJ" target="_blank" rel="noopener noreferrer" class="contact-social-chip">
+            <i class="fas fa-graduation-cap" style="color:#4285F4;"></i> Google Scholar
+          </a>
+          <span class="contact-social-chip location-chip">
+            <i class="fas fa-map-marker-alt" style="color:#ef4444;"></i> London WC1E 6BT, UK
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ── Journey Map ──────────────────────────────────── -->
+  <section style="background:#0d0d1a;padding:60px 0 0;">
+    <div class="max-width" style="padding:0 5% 32px;">
+      <div class="title" style="color:#fff;">Geographical <span>Activity</span>
+        <div class="title-lines"></div>
+      </div>
+      <p style="color:#888;font-size:13px;text-align:center;margin-top:-10px;margin-bottom:20px;">Academic &amp;
+        research locations across the globe</p>
+    </div>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- visitor stats bar -->
+    <div id="visitor-bar"
+      style="display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;padding:10px 5% 18px;font-family:'Ubuntu',sans-serif;font-size:13px;color:#aaa;">
+      <span><i class="fas fa-eye" style="color:crimson;margin-right:6px;"></i>Total visits: <img
+          src="https://visitor-badge.laobi.icu/badge?page_id=shambhubhandari.github.io.portfolio&style=flat&color=dc143c&labelColor=1a1a2e"
+          alt="visitors" style="vertical-align:middle;height:18px;margin-left:4px;border-radius:4px;"></span>
+      <span id="visitor-country"><i class="fas fa-map-marker-alt" style="color:#4caf50;margin-right:6px;"></i>Detecting
+        your location…</span>
+    </div>
+    <div id="journey-map" style="width:100%;height:480px;"></div>
+    <script>
+      (function () {
+        var map = L.map('journey-map', { zoomControl: true, scrollWheelZoom: false }).setView([30, 20], 2);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+          attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+          subdomains: 'abcd', maxZoom: 19
+        }).addTo(map);
+
+        var icon = L.divIcon({
+          className: '',
+          html: '<div style="width:13px;height:13px;background:crimson;border-radius:50%;border:2px solid #fff;box-shadow:0 0 8px rgba(220,20,60,0.8);"></div>',
+          iconSize: [13, 13], iconAnchor: [6, 6], popupAnchor: [0, -8]
+        });
+        var iconCurrent = L.divIcon({
+          className: '',
+          html: '<div style="width:17px;height:17px;background:crimson;border-radius:50%;border:3px solid #fff;box-shadow:0 0 14px rgba(220,20,60,1);animation:pulse 1.5s infinite;"></div>',
+          iconSize: [17, 17], iconAnchor: [8, 8], popupAnchor: [0, -10]
+        });
+
+        var locs = [
+          { ll: [51.5246, -0.1340], label: '<b>UCL London</b><br>PhD Researcher · 2022–Present', cur: true },
+          { ll: [24.4240, 54.4286], label: '<b>Khalifa University, Abu Dhabi</b><br>Research Associate · 2022' },
+          { ll: [51.5074, -0.1278], label: '<b>Imperial College London</b><br>TYC Conference · 2024' },
+          { ll: [51.7520, -1.2577], label: '<b>University of Oxford</b><br>AWE Physics Conference · 2023' },
+          { ll: [27.7172, 85.3240], label: '<b>Kathmandu, Nepal</b><br>TU / KU Research · 2020–2022' },
+          { ll: [31.1471, 75.3412], label: '<b>Himachal Pradesh, India</b><br>Master\'s Research &amp; SIESTA Workshop · 2018–2019' }
+        ];
+
+        locs.forEach(function (p) {
+          L.marker(p.ll, { icon: p.cur ? iconCurrent : icon })
+            .addTo(map).bindPopup(p.label, { className: 'map-popup' });
+        });
+
+        // draw travel path
+        var path = locs.map(function (p) { return p.ll; });
+        L.polyline(path, { color: 'crimson', weight: 1.5, opacity: 0.35, dashArray: '6,8' }).addTo(map);
+
+        // visitor location + history (localStorage)
+        var visitorIcon = L.divIcon({
+          className: '',
+          html: '<div style="width:13px;height:13px;background:#4caf50;border-radius:50%;border:2px solid #fff;box-shadow:0 0 10px rgba(76,175,80,0.9);"></div>',
+          iconSize: [13, 13], iconAnchor: [6, 6], popupAnchor: [0, -8]
+        });
+        var histIcon = L.divIcon({
+          className: '',
+          html: '<div style="width:9px;height:9px;background:#4caf50;border-radius:50%;border:1px solid #fff;opacity:0.5;"></div>',
+          iconSize: [9, 9], iconAnchor: [4, 4], popupAnchor: [0, -6]
+        });
+
+        // load + plot history
+        var history = JSON.parse(localStorage.getItem('vhist') || '[]');
+        history.forEach(function (v) {
+          L.marker([v.lat, v.lng], { icon: histIcon })
+            .addTo(map).bindPopup('<b>Past visit</b><br>' + v.city + ', ' + v.country + '<br><small>' + v.date + '</small>', { className: 'map-popup' });
+        });
+
+        fetch('https://ipapi.co/json/')
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (d.latitude && d.longitude) {
+              L.marker([d.latitude, d.longitude], { icon: visitorIcon })
+                .addTo(map).bindPopup('<b>You are here</b><br>' + (d.city ? d.city + ', ' : '') + d.country_name, { className: 'map-popup' });
+              // save to history (keep last 30, dedupe by country)
+              var entry = { lat: d.latitude, lng: d.longitude, city: d.city || '', country: d.country_name, date: new Date().toLocaleDateString() };
+              var filtered = history.filter(function (v) { return v.country !== d.country_name; });
+              filtered.unshift(entry);
+              localStorage.setItem('vhist', JSON.stringify(filtered.slice(0, 30)));
+            }
+            var el = document.getElementById('visitor-country');
+            if (el) el.innerHTML = '<i class="fas fa-map-marker-alt" style="color:#4caf50;margin-right:6px;"></i>You\'re visiting from <b style="color:#fff;">' + (d.city ? d.city + ', ' : '') + d.country_name + '</b>' + (history.length ? ' &nbsp;·&nbsp; <span style="color:#777;">' + history.length + ' past location' + (history.length > 1 ? 's' : '') + '</span>' : '');
+          }).catch(function () {
+            var el = document.getElementById('visitor-country');
+            if (el) el.style.display = 'none';
+          });
+      })();
+    </script>
+    <style>
+      .leaflet-container {
+        background: #0d0d1a;
+      }
+
+      .map-popup .leaflet-popup-content-wrapper {
+        background: #1a1a2e;
+        color: #ddd;
+        border: 1px solid rgba(220, 20, 60, 0.4);
+        border-radius: 8px;
+        font-size: 12px;
+        font-family: 'Ubuntu', sans-serif;
+      }
+
+      .map-popup .leaflet-popup-tip {
+        background: #1a1a2e;
+      }
+
+      .map-popup .leaflet-popup-close-button {
+        color: #aaa;
+      }
+
+      @keyframes pulse {
+
+        0%,
+        100% {
+          box-shadow: 0 0 8px rgba(220, 20, 60, 0.8);
+        }
+
+        50% {
+          box-shadow: 0 0 20px rgba(220, 20, 60, 1);
+        }
+      }
+    </style>
+  </section>
+
+  <footer class="footer">
+    <p>Shambhu Bhandari Sharma © 2025 | All rights reserved</p>
+  </footer>
+  <script src="../styles/script.js?v=20260502"></script>
+  <script>
+    // Live citation refresh — cached 15 days in localStorage
+    (function(){
+      var CACHE_KEY='pub_cites_v2', TTL=15*24*60*60*1000;
+      var cards=document.querySelectorAll('.pub-cites[data-title]');
+      var cached=null;
+      try{ cached=JSON.parse(localStorage.getItem(CACHE_KEY)); }catch(e){}
+      function applyData(data){
+        var total=0;
+        cards.forEach(function(el){
+          var c=data[el.dataset.title];
+          if(c!==undefined&&c!==null){
+            el.textContent=c+(c===1?' citation':' citations');
+            total+=c;
+          }
+        });
+        if(total>=50){var t=document.getElementById('total-cites');if(t)t.textContent=total;}
+      }
+      if(cached&&cached.ts&&(Date.now()-cached.ts)<TTL){
+        applyData(cached.data); return;
+      }
+      var data={},done=0;
+      cards.forEach(function(el){
+        fetch('https://api.semanticscholar.org/graph/v1/paper/search?query='+encodeURIComponent(el.dataset.title)+'&fields=citationCount&limit=1')
+          .then(function(r){return r.json();})
+          .then(function(d){
+            if(d.data&&d.data[0]&&d.data[0].citationCount!==undefined)
+              data[el.dataset.title]=d.data[0].citationCount;
+          }).catch(function(){})
+          .then(function(){
+            if(++done===cards.length){
+              applyData(data);
+              try{localStorage.setItem(CACHE_KEY,JSON.stringify({ts:Date.now(),data:data}));}catch(e){}
+            }
+          });
+      });
+    })();
+    // Show-more for publications
+    (function(){
+      var grid=document.querySelector('.pub-grid');
+      if(!grid)return;
+      var cards=grid.querySelectorAll('.pub-card');
+      var LIMIT=6;
+      if(cards.length<=LIMIT)return;
+      for(var i=LIMIT;i<cards.length;i++){cards[i].style.display='none';cards[i].setAttribute('data-extra','1');}
+      var wrap=document.createElement('div');
+      wrap.style.cssText='text-align:center;margin-top:28px;';
+      var btn=document.createElement('button');
+      btn.id='pub-show-btn';
+      btn.style.cssText='background:transparent;border:1px solid crimson;color:crimson;padding:10px 30px;border-radius:24px;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.5px;transition:background .2s,color .2s;';
+      btn.innerHTML='<i class="fas fa-chevron-down" style="margin-right:7px;"></i>Show all '+cards.length+' publications';
+      btn.onmouseover=function(){this.style.background='crimson';this.style.color='#fff';};
+      btn.onmouseout=function(){this.style.background='transparent';this.style.color='crimson';};
+      wrap.appendChild(btn);
+      grid.parentNode.insertBefore(wrap,grid.nextSibling);
+      var expanded=false;
+      btn.addEventListener('click',function(){
+        expanded=!expanded;
+        grid.querySelectorAll('[data-extra]').forEach(function(c){c.style.display=expanded?'':'none';});
+        btn.innerHTML=expanded
+          ?'<i class="fas fa-chevron-up" style="margin-right:7px;"></i>Show less'
+          :'<i class="fas fa-chevron-down" style="margin-right:7px;"></i>Show all '+cards.length+' publications';
+        if(!expanded)grid.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    })();
+    if (window.VANTA) {
+      VANTA.NET({
+        el: "#home",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200,
+        minWidth: 200,
+        color: 0xdc143c,
+        backgroundColor: 0x0d0d1a,
+        points: 9,
+        maxDistance: 22,
+        spacing: 18,
+        scale: 1.0,
+        scaleMobile: 1.0
+      });
+    }
+
+    $(window).scroll(function () {
+      if (this.scrollY > 20) {
+        $(".navbar").addClass("sticky");
+      } else {
+        $(".navbar").removeClass("sticky");
+      }
+    });
+  </script>
+</body>
+
+</html>
