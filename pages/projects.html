@@ -163,8 +163,36 @@
         .pub-num { font-weight: 700; color: crimson; font-size: 13px; margin-top: 1px; min-width: 14px;}
         .pub-title { font-weight: 500; color: #ccc; font-size: 13px; line-height: 1.4;}
         .pub-item:hover .pub-title { color: #fff; } 
+
+        /* Private Deck Button */
+        #privateDeckLink {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(220, 20, 60, 0.15);
+            border: 1px solid rgba(220, 20, 60, 0.45);
+            color: #fff;
+            padding: 9px 20px;
+            border-radius: 20px;
+            font-size: 13.5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(220, 20, 60, 0.2);
+        }
+        #privateDeckLink:hover {
+            background: crimson;
+            border-color: crimson;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(220, 20, 60, 0.45);
+        }
+        #privateDeckLink:hover i {
+            color: #fff !important;
+        }
     </style>
 </head>
+<body>
     <div class="bg-glow"></div>
     <div class="bg-glow-2"></div>
     <div class="header">
@@ -176,6 +204,11 @@
         <div class="post-header">
             <h1>🔬 Research Projects</h1>
             <p>First-principles DFT, molecular dynamics, and machine learning applied to materials science.</p>
+            <div style="margin-top: 18px; display: flex; justify-content: center;">
+                <a href="https://drive.google.com/" id="privateDeckLink" target="_blank" title="Open private interview presentation in Google Drive">
+                    <i class="fas fa-file-powerpoint" style="color: crimson; transition: color 0.3s;"></i> <span>Interview Presentation Deck (Private) &rarr;</span>
+                </a>
+            </div>
         </div>
 
         <div class="projects-list">
